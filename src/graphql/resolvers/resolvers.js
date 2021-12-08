@@ -4,8 +4,8 @@ module.exports = {
   hello: () => {
     return 'Hello world!';
   },
-  async createBook({ book }) {
-    const newBook = await createBook(book);
+  async createBook({ input }) {
+    const newBook = await createBook(input);
     return newBook;
   },
   async listBooks() {
