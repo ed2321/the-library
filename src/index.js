@@ -22,7 +22,7 @@ app.use(
 );
 
 app.get('/', function (_req, res) {
-  res.send('Hello, welcome to the api library.');
+  res.send('Hello, welcome to the api library...!');
 });
 
 app.use(async (error, req, res, next) => {
