@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
@@ -26,3 +26,17 @@ jobs:
         run: npm i
       - name: Running tests
         run: npm test
+
+jobs:
+  cd-api:
+      name: Deploy
+      runs-on: ubuntu-latest
+
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_KEY }}
+          script: sh deploy.sh
