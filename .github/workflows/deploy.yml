@@ -17,4 +17,14 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
-          script: sh deploy.sh
+          script: |
+            mkdir -p /home/ubuntu/app/
+            rm -rf /home/ubuntu/app/*
+            cd /home/ubuntu/app/
+            git clone https://github.com/ed2321/the-library.git
+            cd /home/ubuntu/app/the-library/
+            touch .env
+            echo ENGINE_API_KEY =${{ secrets.AWS_HOST }} >> .env
+            echo ENGINE_API_KEY2 =${{ secrets.AWS_HOST }} >> .env
+            echo ENGINE_API_KEY3 =${{ secrets.AWS_HOST }} >> .env
+            sudo docker-compose up --build api

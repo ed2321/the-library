@@ -10,5 +10,6 @@ git clone https://github.com/ed2321/the-library.git
 
 cd /home/ubuntu/app/the-library/
 
-
 sudo docker-compose up --build api
+
+
