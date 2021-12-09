@@ -24,7 +24,19 @@ jobs:
             git clone https://github.com/ed2321/the-library.git
             cd /home/ubuntu/app/the-library/
             touch .env
-            echo ENGINE_API_KEY =${{ secrets.AWS_HOST }} >> .env
-            echo ENGINE_API_KEY2 =${{ secrets.AWS_HOST }} >> .env
-            echo ENGINE_API_KEY3 =${{ secrets.AWS_HOST }} >> .env
-            sudo docker-compose up --build api
+            echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
+            echo HOST=${{ secrets.HOST }} >> .env
+            echo PORT=${{ secrets.PORT }} >> .env
+            echo MONGO_HOST=${{ secrets.MONGO_HOST }} >> .env
+            echo MONGO_PORT=${{ secrets.MONGO_PORT }} >> .env
+            echo MONGO_USER=${{ secrets.MONGO_USER }} >> .env
+            echo MONGO_PASSWORD=${{ secrets.MONGO_PASSWORD }} >> .env
+            echo MONGO_REPLICASET=${{ secrets.MONGO_REPLICASET }} >> .env
+            echo MONGO_SSL=${{ secrets.MONGO_SSL }} >> .env
+            echo MONGO_AUTH_SOURCE=${{ secrets.MONGO_AUTH_SOURCE }} >> .env
+            echo MONGO_DEFAULT_DATABASE=${{ secrets.MONGO_DEFAULT_DATABASE }} >> .env
+            echo REDIS_HOST=${{ secrets.REDIS_HOST }} >> .env
+            echo REDIS_PORT=${{ secrets.REDIS_PORT }} >> .env
+            echo REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} >> .env
+            echo REDIS_PREFIX=${{ secrets.REDIS_PREFIX }} >> .env
+            sudo docker-compose up --build api -d
