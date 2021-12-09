@@ -22,10 +22,14 @@
 
 
 
-mkdir -p /home/ubuntu/the-library
+# mkdir -p /home/ubuntu/the-library
 
-rm -rf /home/ubuntu/the-library/*
+rm -rf /home/ubuntu/*
+
+cd /home/ubuntu/
+
+git clone https://github.com/ed2321/the-library.git
 
 cd /home/ubuntu/the-library/
 
-git clone https://github.com/ed2321/the-library.git
+docker-compose up --build api
