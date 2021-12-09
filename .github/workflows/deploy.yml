@@ -39,4 +39,4 @@ jobs:
             echo REDIS_PORT=${{ secrets.REDIS_PORT }} >> .env
             echo REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} >> .env
             echo REDIS_PREFIX=${{ secrets.REDIS_PREFIX }} >> .env
-            docker-compose up api --build --detach
+            docker-compose up --build --detach
